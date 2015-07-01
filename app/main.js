@@ -21,3 +21,12 @@ angular.module('AddressBook', [])
       }).join(' ');
     }
   })
+  .directive('avatar', function(){
+    return {
+      restrict: 'AE',
+      scope: {
+        name:'=',
+      },
+      template:"<span class='avatar'>{{name[0] | proper }}</span>"
+    }
+  })
