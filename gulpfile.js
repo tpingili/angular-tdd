@@ -24,6 +24,7 @@ gulp.task('serve', ['server'], function(){
     .on('change', browserSync.reload);
 })
 
+//serving tests in browser
 gulp.task('test-browser', function(done){
   karma.start({
     configFile: __dirname + '/karma.conf.js',
@@ -34,6 +35,7 @@ gulp.task('test-browser', function(done){
   })
 })
 
+//serving code coverage details
 gulp.task('serve-coverage', ['test-browser'], function(){
   browserSync.init({
     notify: false,
@@ -46,6 +48,7 @@ gulp.task('serve-coverage', ['test-browser'], function(){
     .on('change', browserSync.reload);
 })
 
+//serving tests
 gulp.task('serve-test', function(){
   browserSync.init({
     notify: false,
@@ -61,6 +64,7 @@ gulp.task('serve-test', function(){
     .on('change', browserSync.reload);
 });
 
+//serving protractor
 gulp.task('protractor', ['serve'], function(done){
   gulp.src(['test/e2e/*.js'])
     .pipe(protractor({
